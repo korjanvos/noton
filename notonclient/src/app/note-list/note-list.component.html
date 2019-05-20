@@ -1,0 +1,10 @@
+<h2>Note List</h2>
+<button class="add-note" (click)="saveNote()">Add note</button>
+<ul class="note-list">
+  <li class="note-list-item" *ngFor="let note of notes">
+    <input #noteTextBox
+           value="{{ note.text }}"
+           (keyup.enter)="updateNote(note.id, noteTextBox.value)" />
+    <button class="delete-note" (click)="deleteNote(note)">X</button>
+  </li>
+</ul>
