@@ -11,6 +11,7 @@ notonclient/bazel-out
 # dependencies
 notonclient/node_modules
 
+
 # profiling files
 notonclient/chrome-profiler-events.json
 notonclient/speed-measure-plugin.json
@@ -23,6 +24,8 @@ notonclient/libpeerconnection.log
 notonclient/npm-debug.log
 notonclient/testem.log
 notonclient/typings
+
+notonclient/node
 
 # System Files
 notonclient/.DS_Store
