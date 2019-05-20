@@ -24,7 +24,7 @@ notonclient/libpeerconnection.log
 notonclient/npm-debug.log
 notonclient/testem.log
 notonclient/typings
-
+notonclient/package-lock.json
 notonclient/node
 
 # System Files
