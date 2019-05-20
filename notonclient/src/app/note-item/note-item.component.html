@@ -1,0 +1,4 @@
+<input type="text" class="form-control"
+       #textBox
+       [ngModel]="note.text"
+       (input)="addPotentialNewNote(note.id, textBox.value)">

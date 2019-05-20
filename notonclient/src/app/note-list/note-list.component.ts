@@ -28,17 +28,15 @@ export class NoteListComponent implements OnInit {
   }
 
   deleteNote(note: Note) {
-    console.log('delete ' + note.id)
     this.noteService.delete(note)
       .subscribe(() => this.notes = this.notes.filter(n => n.id !== note.id));
   }
 
-  updateNote(id: number, text: string) {
-    let note = new Note(id, text);
-    this.noteService.update(note)
-      .subscribe(newNote => {
-        let index = this.notes.map(note => note.id).indexOf(newNote.id);
-        this.notes[index] = newNote;
+  updateNote(newNote: Note) {
+    this.noteService.update(newNote)
+      .subscribe(returnedNote => {
+        let index = this.notes.map(note => note.id).indexOf(returnedNote.id);
+        this.notes[index] = returnedNote;
       })
   }
 }
