@@ -31,9 +31,6 @@ notonclient/node
 notonclient/.DS_Store
 notonclient/Thumbs.db
 
-notonclient/.editorconfig
-notonclient/package-lock.json
-
 notonserver/target
 
 /.idea
