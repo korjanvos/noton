@@ -1,10 +1,22 @@
-<h2>Note List</h2>
-<button class="add-note" (click)="saveNote()">Add note</button>
-<ul class="note-list">
-  <li class="note-list-item" *ngFor="let note of notes">
-    <input #noteTextBox
+<p>Press enter to save note to database.</p>
+
+<div class="my-3">
+  <button class="btn btn-primary btn-block" type="button" id="button-add"
+          (click)="saveNote()">
+    Add Note
+  </button>
+</div>
+<div class="note-list-item" *ngFor="let note of notes">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" aria-label="Note text" aria-describedby="button-addon2"
+           #noteTextBox
            value="{{ note.text }}"
-           (keyup.enter)="updateNote(note.id, noteTextBox.value)" />
-    <button class="delete-note" (click)="deleteNote(note)">X</button>
-  </li>
-</ul>
+           (keyup.enter)="updateNote(note.id, noteTextBox.value)">
+    <div class="input-group-append">
+      <button class="btn btn-danger" type="button" id="button-item"
+              (click)="deleteNote(note)">
+        X
+      </button>
+    </div>
+  </div>
+</div>
