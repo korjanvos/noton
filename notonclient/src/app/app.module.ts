@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoteListComponent } from './note-list/note-list.component';
 import { FormsModule } from "@angular/forms";
+import { ValueAuditerDirective } from './value-auditer.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NoteListComponent,
+    ValueAuditerDirective,
   ],
   imports: [
     BrowserModule,
