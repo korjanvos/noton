@@ -1,6 +1,7 @@
 package org.kvos.notonserver.Note;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,8 +10,11 @@ import java.util.List;
 @RequestMapping("/api/notes")
 @CrossOrigin(origins = "http://localhost:4200")
 class NoteController {
-    @Autowired
-    NoteRepository noteRepository;
+    private final NoteRepository noteRepository;
+
+    public NoteController(NoteRepository noteRepository) {
+        this.noteRepository = noteRepository;
+    }
 
     @GetMapping
     List<Note> findAll() {
