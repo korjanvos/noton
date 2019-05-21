@@ -1,4 +1,4 @@
-package org.kvos.notonserver.Note;
+package org.kvos.notonserver.note;
 
 class NoteNotFoundException extends RuntimeException {
     NoteNotFoundException(Long id) {

@@ -1,4 +1,4 @@
-package org.kvos.notonserver.Note;
+package org.kvos.notonserver.note;
 
 import javax.persistence.*;
 
@@ -34,7 +34,7 @@ public class Note {
 
     @Override
     public String toString() {
-        return "Note{" +
+        return "note{" +
                 "id=" + id +
                 ", text='" + text + '\'' +
                 '}';

@@ -1,4 +1,4 @@
-package org.kvos.notonserver.Note;
+package org.kvos.notonserver.note;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

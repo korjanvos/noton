@@ -1,4 +1,4 @@
-package org.kvos.notonserver.Note;
+package org.kvos.notonserver.note;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
