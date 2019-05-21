@@ -6,7 +6,11 @@
 </div>
 <div class="note-list-item" *ngFor="let note of notes">
   <div class="input-group mb-3">
-    <app-note-item [note]="note" (newNote)="updateNote($event)"></app-note-item>
+    <input type="text" class="form-control"
+           #textBox
+           [ngModel]="note.text"
+           (keyup.enter)="updateNote(note.id, textBox.value)"
+           (blur)="updateNote(note.id, textBox.value)">
     <div class="input-group-append">
       <button class="btn btn-danger" type="button" id="button-item"
               (click)="deleteNote(note)">

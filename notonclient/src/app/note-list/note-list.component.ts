@@ -32,7 +32,8 @@ export class NoteListComponent implements OnInit {
       .subscribe(() => this.notes = this.notes.filter(n => n.id !== note.id));
   }
 
-  updateNote(newNote: Note) {
+  updateNote(id: number, text: string) {
+    let newNote = new Note(id, text);
     this.noteService.update(newNote)
       .subscribe(returnedNote => {
         let index = this.notes.map(note => note.id).indexOf(returnedNote.id);
