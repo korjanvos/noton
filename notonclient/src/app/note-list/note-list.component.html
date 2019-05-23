@@ -1,19 +1,23 @@
-<div class="my-3">
-  <button class="btn btn-primary btn-block" type="button" id="button-add"
-          (click)="saveNote()">
-    Add Note
-  </button>
-</div>
-<div class="note-list-item" *ngFor="let note of notes">
-  <div class="input-group mb-3">
-    <input appValueAuditor type="text" class="form-control"
-           value={{note.text}}
-           (newValue)="updateNote(note.id, $event)">
-    <div class="input-group-append">
-      <button class="btn btn-danger" type="button" id="button-item"
-              (click)="deleteNote(note)">
-        X
+<div class="row">
+  <div class="col-sm-6">
+    <div class="my-3">
+      <button class="btn btn-primary btn-block" type="button" id="button-add"
+              (click)="saveNote()">
+        Add Note
       </button>
+    </div>
+    <div class="note-list-item" *ngFor="let note of notes">
+      <div class="input-group mb-3">
+        <input appValueAuditor type="text" class="form-control"
+               value={{note.text}}
+               (newValue)="updateNote(note.id, $event)">
+        <div class="input-group-append">
+          <button class="btn btn-danger" type="button"
+                  (click)="deleteNote(note)">
+            X
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

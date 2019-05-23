@@ -1,0 +1,29 @@
+<div class="row">
+
+  <div class="col-11">
+    <nav class="nav">
+      <div class="nav-item d-inline-block" *ngFor="let notebook of notebooks">
+        <div class="input-group mb-3">
+          <input appValueAuditor type="text" class="form-control"
+                 value={{notebook.name}}
+                 (newValue)="updateNotebook(notebook.id, $event)"
+                 (click)="updateActiveNotebook(notebook)">
+          <div class="input-group-append">
+            <button class="btn btn-danger" type="button"
+                    (click)="deleteNotebook(notebook)">
+              X
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="col-1">
+    <button class="btn btn-primary btn-block" type="button" id="button-add"
+            (click)="saveNotebook()">
+      +
+    </button>
+  </div>
+
+</div>

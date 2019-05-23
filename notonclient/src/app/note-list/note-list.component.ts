@@ -1,29 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Note } from "../note";
 import { NoteService } from "../note.service";
+import { NotebookService } from "../notebook.service";
+import { Notebook } from "../notebook";
 
 @Component({
   selector: 'app-note-list',
   templateUrl: './note-list.component.html',
   styleUrls: ['./note-list.component.css']
 })
-export class NoteListComponent implements OnInit {
+export class NoteListComponent implements OnChanges {
+  @Input() notebook: Notebook;
+
   private notes: Note[];
 
-  constructor(private noteService: NoteService) {
+  constructor(private noteService: NoteService, private notebookService: NotebookService) {
   }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.findNotes();
   }
 
   findNotes() {
-    this.noteService.findAll()
-      .subscribe(newNotes => this.notes = newNotes);
+    let noteBookId = this.notebook.id;
+    this.notebookService.findNotes(noteBookId)
+      .subscribe((newNotes => this.notes = newNotes));
   }
 
   saveNote() {
-    this.noteService.save({text: ''} as Note)
+    let noteBookId = this.notebook.id;
+    this.noteService.save({text: '', notebookId: noteBookId} as Note)
       .subscribe(newNote => this.notes.push(newNote));
   }
 
@@ -33,11 +39,14 @@ export class NoteListComponent implements OnInit {
   }
 
   updateNote(id: number, text: string) {
-    let newNote = new Note(id, text);
+    let notebookId = this.notebook.id;
+    let newNote = new Note(id, text, notebookId);
     this.noteService.update(newNote)
       .subscribe(returnedNote => {
         let index = this.notes.map(note => note.id).indexOf(returnedNote.id);
-        this.notes[index] = returnedNote;
+        if (index !== -1) {
+          this.notes[index] = returnedNote;
+        }
       })
   }
 }

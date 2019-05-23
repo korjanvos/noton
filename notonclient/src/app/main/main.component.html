@@ -1,0 +1,4 @@
+<div class="container">
+  <app-notebook-nav (newActiveNotebook)="updateActiveNotebook($event)"></app-notebook-nav>
+  <app-note-list [notebook]="activeNotebook"></app-note-list>
+</div>
