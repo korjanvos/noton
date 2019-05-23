@@ -1,19 +1,29 @@
 package org.kvos.notonserver.note;
 
-import javax.persistence.*;
+import org.kvos.notonserver.notebook.Notebook;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Note {
     @Id
     @GeneratedValue
     private Long id;
+
     private String text;
+
+    @ManyToOne
+    private Notebook notebook;
 
     public Note() {
     }
 
-    public Note(String text) {
+    public Note(String text, Notebook notebook) {
         this.text = text;
+        this.notebook = notebook;
     }
 
     public Long getId() {
@@ -32,6 +42,14 @@ public class Note {
         this.text = text;
     }
 
+    public Notebook getNotebook() {
+        return notebook;
+    }
+
+    public void setNotebook(Notebook notebook) {
+        this.notebook = notebook;
+    }
+
     @Override
     public String toString() {
         return "note{" +
@@ -39,4 +57,5 @@ public class Note {
                 ", text='" + text + '\'' +
                 '}';
     }
+
 }
