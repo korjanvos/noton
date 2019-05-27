@@ -1,4 +1,13 @@
 <div class="container">
   <app-notebook-nav (newActiveNotebook)="updateActiveNotebook($event)"></app-notebook-nav>
-  <app-note-list [notebook]="activeNotebook"></app-note-list>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <app-note-list [notebook]="activeNotebook"
+                     (newActiveNote)="updateActiveNote($event)"></app-note-list>
+    </div>
+    <div class="col-sm-6">
+      <app-note-detail [note]="activeNote"></app-note-detail>
+    </div>
+  </div>
 </div>

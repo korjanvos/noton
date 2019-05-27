@@ -9,6 +9,7 @@ import { FormsModule } from "@angular/forms";
 import { ValueAuditerDirective } from './value-auditer.directive';
 import { MainComponent } from './main/main.component';
 import { NotebookNavComponent } from './notebook-nav/notebook-nav.component';
+import { NoteDetailComponent } from './note-detail/note-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NotebookNavComponent } from './notebook-nav/notebook-nav.component';
     ValueAuditerDirective,
     MainComponent,
     NotebookNavComponent,
+    NoteDetailComponent,
   ],
   imports: [
     BrowserModule,

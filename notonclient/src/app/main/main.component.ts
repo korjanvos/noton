@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Notebook } from "../notebook";
 import { NotebookService } from "../notebook.service";
+import { Note } from "../note";
 
 @Component({
   selector: 'app-main',
@@ -9,6 +10,7 @@ import { NotebookService } from "../notebook.service";
 })
 export class MainComponent implements OnInit {
   activeNotebook: Notebook;
+  activeNote: Note;
 
   constructor(private notebookService: NotebookService) { }
 
@@ -19,5 +21,9 @@ export class MainComponent implements OnInit {
 
   updateActiveNotebook(newActiveNotebook: Notebook) {
     this.activeNotebook = newActiveNotebook;
+  }
+
+  updateActiveNote(newActiveNote: Note) {
+    this.activeNote = newActiveNote;
   }
 }

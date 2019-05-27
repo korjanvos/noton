@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { Note } from "../note";
 import { NoteService } from "../note.service";
 import { NotebookService } from "../notebook.service";
@@ -11,6 +11,7 @@ import { Notebook } from "../notebook";
 })
 export class NoteListComponent implements OnChanges {
   @Input() notebook: Notebook;
+  @Output('newActiveNote') activeNoteEmitter = new EventEmitter<Note>();
 
   private notes: Note[];
 
@@ -46,7 +47,12 @@ export class NoteListComponent implements OnChanges {
         let index = this.notes.map(note => note.id).indexOf(returnedNote.id);
         if (index !== -1) {
           this.notes[index] = returnedNote;
+          this.activeNoteEmitter.emit(returnedNote);
         }
       })
+  }
+
+  updateActiveNote(note: Note) {
+    this.activeNoteEmitter.emit(note);
   }
 }

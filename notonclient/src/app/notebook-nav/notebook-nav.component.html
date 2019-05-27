@@ -2,7 +2,7 @@
 
   <div class="col-11">
     <nav class="nav">
-      <div class="nav-item d-inline-block" *ngFor="let notebook of notebooks">
+      <div class="nav-item" style="width: 12rem;" *ngFor="let notebook of notebooks">
         <div class="input-group mb-3">
           <input appValueAuditor type="text" class="form-control"
                  value={{notebook.name}}
